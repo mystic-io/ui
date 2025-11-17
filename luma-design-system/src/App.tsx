@@ -25,6 +25,60 @@ import {
   DialogTrigger,
 } from './components/ui/dialog'
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from './components/ui/alert-dialog'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './components/ui/sheet'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from './components/ui/dropdown-menu'
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from './components/ui/context-menu'
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from './components/ui/menubar'
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from './components/ui/command'
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -50,9 +104,40 @@ import {
   CardHeader,
   CardTitle,
 } from './components/ui/card'
+import { Toggle } from './components/ui/toggle'
+import { ToggleGroup, ToggleGroupItem } from './components/ui/toggle-group'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from './components/ui/breadcrumb'
+import { Skeleton } from './components/ui/skeleton'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './components/ui/hover-card'
+import { ScrollArea } from './components/ui/scroll-area'
 import { Toaster } from './components/ui/toaster'
 import { useToast } from './components/ui/use-toast'
-import { AlertCircle, CheckCircle, Info, AlertTriangle, User } from 'lucide-react'
+import {
+  AlertCircle,
+  CheckCircle,
+  Info,
+  AlertTriangle,
+  User,
+  Bold,
+  Italic,
+  Underline,
+  ChevronDown,
+  Settings,
+  LogOut,
+  Mail,
+  MessageSquare,
+  Plus,
+  UserPlus,
+  Calendar,
+  Search,
+} from 'lucide-react'
 
 function App() {
   const [sliderValue, setSliderValue] = useState([50])
@@ -61,6 +146,9 @@ function App() {
   const [checkboxChecked, setCheckboxChecked] = useState(false)
   const [radioValue, setRadioValue] = useState("option1")
   const [selectValue, setSelectValue] = useState("")
+  const [commandOpen, setCommandOpen] = useState(false)
+  const [togglePressed, setTogglePressed] = useState(false)
+  const [alignment, setAlignment] = useState("center")
   const { toast } = useToast()
 
   return (
@@ -71,10 +159,10 @@ function App() {
             Luma UI Component Library
           </h1>
           <p className="text-lg text-muted-foreground">
-            Complete recreation of Luma design system • 21 Components • shadcn/ui + Radix UI
+            Complete recreation of Luma design system • 33 Components • shadcn/ui + Radix UI
           </p>
           <div className="flex gap-2 justify-center flex-wrap">
-            <Badge>21 Components</Badge>
+            <Badge>33 Components</Badge>
             <Badge variant="success">React 19</Badge>
             <Badge variant="secondary">TypeScript</Badge>
             <Badge variant="outline">Tailwind CSS</Badge>
@@ -503,6 +591,378 @@ function App() {
 
         <Separator />
 
+        {/* Alert Dialog & Sheet Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Alert Dialog & Sheet</h2>
+          <div className="flex gap-4 flex-wrap">
+            {/* Alert Dialog */}
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="error">Delete Account</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete your account
+                    and remove your data from our servers.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction>Continue</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+
+            {/* Sheet - Left */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline">Open Left Sheet</Button>
+              </SheetTrigger>
+              <SheetContent side="left">
+                <SheetHeader>
+                  <SheetTitle>Navigation</SheetTitle>
+                  <SheetDescription>
+                    This is a left-side sheet panel for navigation.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="mt-6 space-y-4">
+                  <Button variant="ghost" className="w-full justify-start">
+                    <User className="mr-2 h-4 w-4" />
+                    Profile
+                  </Button>
+                  <Button variant="ghost" className="w-full justify-start">
+                    <Settings className="mr-2 h-4 w-4" />
+                    Settings
+                  </Button>
+                  <Button variant="ghost" className="w-full justify-start">
+                    <Mail className="mr-2 h-4 w-4" />
+                    Messages
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+
+            {/* Sheet - Right */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline">Open Right Sheet</Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <SheetHeader>
+                  <SheetTitle>Settings</SheetTitle>
+                  <SheetDescription>
+                    Configure your preferences here.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="mt-6 space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name-sheet">Name</Label>
+                    <Input id="name-sheet" placeholder="Your name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email-sheet">Email</Label>
+                    <Input id="email-sheet" type="email" placeholder="your@email.com" />
+                  </div>
+                  <Button className="w-full">Save Changes</Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* Dropdown Menu & Context Menu Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Dropdown & Context Menus</h2>
+          <div className="flex gap-4 flex-wrap">
+            {/* Dropdown Menu */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">
+                  Open Menu <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <User className="mr-2 h-4 w-4" />
+                    <span>Profile</span>
+                    <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Settings className="mr-2 h-4 w-4" />
+                    <span>Settings</span>
+                    <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Mail className="mr-2 h-4 w-4" />
+                    <span>Messages</span>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Log out</span>
+                  <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Context Menu */}
+            <ContextMenu>
+              <ContextMenuTrigger asChild>
+                <div className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+                  Right click here
+                </div>
+              </ContextMenuTrigger>
+              <ContextMenuContent className="w-64">
+                <ContextMenuItem>
+                  <User className="mr-2 h-4 w-4" />
+                  Profile
+                </ContextMenuItem>
+                <ContextMenuItem>
+                  <Settings className="mr-2 h-4 w-4" />
+                  Settings
+                </ContextMenuItem>
+                <ContextMenuSeparator />
+                <ContextMenuItem>
+                  <Plus className="mr-2 h-4 w-4" />
+                  New Item
+                </ContextMenuItem>
+                <ContextMenuItem>
+                  <UserPlus className="mr-2 h-4 w-4" />
+                  Invite User
+                </ContextMenuItem>
+              </ContextMenuContent>
+            </ContextMenu>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* Menubar Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Menubar</h2>
+          <Menubar>
+            <MenubarMenu>
+              <MenubarTrigger>File</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem>
+                  New Window <MenubarShortcut>⌘N</MenubarShortcut>
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Share</MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Print</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+            <MenubarMenu>
+              <MenubarTrigger>Edit</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem>
+                  Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Cut</MenubarItem>
+                <MenubarItem>Copy</MenubarItem>
+                <MenubarItem>Paste</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+            <MenubarMenu>
+              <MenubarTrigger>View</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>Zoom In</MenubarItem>
+                <MenubarItem>Zoom Out</MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Full Screen</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </section>
+
+        <Separator />
+
+        {/* Command Palette Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Command Palette</h2>
+          <div className="flex gap-4">
+            <Button variant="outline" onClick={() => setCommandOpen(true)}>
+              <Search className="mr-2 h-4 w-4" />
+              Open Command Palette
+              <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
+          </div>
+          <CommandDialog open={commandOpen} onOpenChange={setCommandOpen}>
+            <CommandInput placeholder="Type a command or search..." />
+            <CommandList>
+              <CommandEmpty>No results found.</CommandEmpty>
+              <CommandGroup heading="Suggestions">
+                <CommandItem>
+                  <Calendar className="mr-2 h-4 w-4" />
+                  <span>Calendar</span>
+                </CommandItem>
+                <CommandItem>
+                  <Mail className="mr-2 h-4 w-4" />
+                  <span>Email</span>
+                </CommandItem>
+                <CommandItem>
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <span>Messages</span>
+                </CommandItem>
+              </CommandGroup>
+              <CommandGroup heading="Settings">
+                <CommandItem>
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Profile</span>
+                </CommandItem>
+                <CommandItem>
+                  <Settings className="mr-2 h-4 w-4" />
+                  <span>Settings</span>
+                </CommandItem>
+              </CommandGroup>
+            </CommandList>
+          </CommandDialog>
+        </section>
+
+        <Separator />
+
+        {/* Toggle & Toggle Group Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Toggle & Toggle Group</h2>
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <Toggle
+                pressed={togglePressed}
+                onPressedChange={setTogglePressed}
+                aria-label="Toggle bold"
+              >
+                <Bold className="h-4 w-4" />
+              </Toggle>
+              <Toggle aria-label="Toggle italic">
+                <Italic className="h-4 w-4" />
+              </Toggle>
+              <Toggle aria-label="Toggle underline">
+                <Underline className="h-4 w-4" />
+              </Toggle>
+            </div>
+            <ToggleGroup type="single" value={alignment} onValueChange={setAlignment}>
+              <ToggleGroupItem value="left" aria-label="Align left">
+                Left
+              </ToggleGroupItem>
+              <ToggleGroupItem value="center" aria-label="Align center">
+                Center
+              </ToggleGroupItem>
+              <ToggleGroupItem value="right" aria-label="Align right">
+                Right
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* Breadcrumb Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Breadcrumb</h2>
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </section>
+
+        <Separator />
+
+        {/* Skeleton & Hover Card Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Skeleton & Hover Card</h2>
+          <div className="space-y-6">
+            {/* Skeleton Demo */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium">Skeleton Loading</h3>
+              <div className="flex items-center space-x-4">
+                <Skeleton className="h-12 w-12 rounded-full" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+            </div>
+
+            {/* Hover Card Demo */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium">Hover Card</h3>
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <Button variant="link">@lumadesign</Button>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="flex justify-between space-x-4">
+                    <Avatar>
+                      <AvatarImage src="https://github.com/vercel.png" />
+                      <AvatarFallback>LD</AvatarFallback>
+                    </Avatar>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-semibold">@lumadesign</h4>
+                      <p className="text-sm">
+                        The Luma design system – created and maintained by Luma team.
+                      </p>
+                      <div className="flex items-center pt-2">
+                        <Calendar className="mr-2 h-4 w-4 opacity-70" />
+                        <span className="text-xs text-muted-foreground">
+                          Joined December 2021
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* Scroll Area Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold">Scroll Area</h2>
+          <ScrollArea className="h-[200px] w-full max-w-md rounded-md border p-4">
+            <div className="space-y-4">
+              <h4 className="mb-4 text-sm font-medium leading-none">Scrollable Content</h4>
+              {Array.from({ length: 20 }).map((_, i) => (
+                <div key={i} className="text-sm">
+                  Item {i + 1} - This is some scrollable content in a custom scroll area.
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+        </section>
+
+        <Separator />
+
         {/* Theme Toggle */}
         <section className="space-y-4">
           <h2 className="text-2xl font-bold">Theme</h2>
@@ -525,7 +985,7 @@ function App() {
         <Separator />
 
         <footer className="text-center text-muted-foreground space-y-2 pt-8">
-          <p className="font-semibold">21 Production-Ready Components</p>
+          <p className="font-semibold">33 Production-Ready Components</p>
           <p>Built with React 19, TypeScript, Tailwind CSS, Radix UI, and shadcn/ui</p>
           <p className="text-sm">Reverse-engineered from Luma design system</p>
           <div className="flex gap-2 justify-center pt-2">
