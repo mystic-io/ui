@@ -35,6 +35,9 @@ export * from './CountSelector'
 export * from './Popover'
 export * from './Lightbox'
 
+// Icons
+export * from './Icon'
+
 // Typography
 export * from './Typography/Typography'
 export * from './Typography/Pill'
