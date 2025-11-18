@@ -20,7 +20,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Info: Story = {
+export const InfoAlert: Story = {
   render: () => (
     <Alert variant="info">
       <Info className="h-4 w-4" />
@@ -32,7 +32,7 @@ export const Info: Story = {
   ),
 }
 
-export const Success: Story = {
+export const SuccessAlert: Story = {
   render: () => (
     <Alert variant="success">
       <CheckCircle className="h-4 w-4" />
@@ -44,7 +44,7 @@ export const Success: Story = {
   ),
 }
 
-export const Warning: Story = {
+export const WarningAlert: Story = {
   render: () => (
     <Alert variant="warning">
       <AlertTriangle className="h-4 w-4" />
@@ -56,7 +56,7 @@ export const Warning: Story = {
   ),
 }
 
-export const Error: Story = {
+export const ErrorAlert: Story = {
   render: () => (
     <Alert variant="error">
       <AlertCircle className="h-4 w-4" />
