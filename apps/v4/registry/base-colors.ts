@@ -751,6 +751,69 @@ export const baseColors = [
       },
     },
   },
+  {
+    name: "luma",
+    label: "Luma",
+    activeColor: {
+      light: "214 100% 50%", // Luma blue-50
+      dark: "217 100% 60%", // Luma blue-30
+    },
+    cssVars: {
+      light: {
+        background: "0 0% 100%", // white
+        foreground: "215 15% 8%", // black
+        card: "0 0% 100%",
+        "card-foreground": "215 15% 8%",
+        popover: "0 0% 100%",
+        "popover-foreground": "215 15% 8%",
+        primary: "214 100% 50%", // blue-50
+        "primary-foreground": "0 0% 100%",
+        secondary: "210 20% 97%", // gray-10
+        "secondary-foreground": "213 11% 22%", // gray-100
+        muted: "210 20% 97%",
+        "muted-foreground": "214 8% 62%", // gray-60
+        accent: "210 17% 93%", // gray-20
+        "accent-foreground": "213 11% 22%",
+        destructive: "344 79% 52%", // cranberry-50
+        "destructive-foreground": "0 0% 100%",
+        border: "211 15% 88%", // gray-30
+        input: "211 15% 88%",
+        ring: "214 100% 50%",
+        radius: "0.5rem",
+        "chart-1": "217 100% 60%",
+        "chart-2": "142 71% 45%",
+        "chart-3": "214 100% 42%",
+        "chart-4": "214 8% 73%",
+        "chart-5": "344 79% 52%",
+      },
+      dark: {
+        background: "215 15% 8%", // black
+        foreground: "0 0% 100%",
+        card: "213 11% 22%", // gray-100
+        "card-foreground": "0 0% 100%",
+        popover: "213 9% 29%", // gray-90
+        "popover-foreground": "0 0% 100%",
+        primary: "217 100% 60%", // blue-30
+        "primary-foreground": "215 15% 8%",
+        secondary: "213 9% 29%",
+        "secondary-foreground": "0 0% 100%",
+        muted: "213 9% 29%",
+        "muted-foreground": "214 8% 73%",
+        accent: "213 11% 41%", // gray-80
+        "accent-foreground": "0 0% 100%",
+        destructive: "344 79% 52%",
+        "destructive-foreground": "0 0% 100%",
+        border: "213 11% 41%",
+        input: "213 11% 41%",
+        ring: "217 100% 60%",
+        "chart-1": "217 100% 60%",
+        "chart-2": "142 71% 45%",
+        "chart-3": "214 100% 42%",
+        "chart-4": "214 8% 73%",
+        "chart-5": "344 79% 52%",
+      },
+    },
+  },
 ] as const
 
 export type BaseColor = (typeof baseColors)[number]
@@ -1099,6 +1162,77 @@ export const baseColorsV4 = {
       "sidebar-accent-foreground": "oklch(0.984 0.003 247.858)", // --color-slate-50
       "sidebar-border": "oklch(1 0 0 / 10%)", // --color-white
       "sidebar-ring": "oklch(0.551 0.027 264.364)", // --color-slate-500
+    },
+  },
+  luma: {
+    light: {
+      background: "oklch(1 0.102 240.86)", // Luma white
+      foreground: "oklch(0.195 0.002 255.85)", // Luma black
+      card: "oklch(1 0.102 240.86)", // Luma white
+      "card-foreground": "oklch(0.195 0.002 255.85)", // Luma black
+      popover: "oklch(1 0.102 240.86)", // Luma white
+      "popover-foreground": "oklch(0.195 0.002 255.85)", // Luma black
+      primary: "oklch(0.548 0.644 273.55)", // Luma blue-50
+      "primary-foreground": "oklch(1 0.102 240.86)", // Luma white
+      secondary: "oklch(0.979 0.104 242.96)", // Luma gray-10
+      "secondary-foreground": "oklch(0.255 0.003 253.59)", // Luma gray-100
+      muted: "oklch(0.979 0.104 242.96)", // Luma gray-10
+      "muted-foreground": "oklch(0.669 0.039 246.61)", // Luma gray-60
+      accent: "oklch(0.943 0.093 243.05)", // Luma gray-20
+      "accent-foreground": "oklch(0.255 0.003 253.59)", // Luma gray-100
+      destructive: "oklch(0.597 0.197 0.71)", // Luma cranberry-50
+      "destructive-foreground": "oklch(1 0.102 240.86)", // Luma white
+      border: "oklch(0.906 0.091 245.08)", // Luma gray-30
+      input: "oklch(0.906 0.091 245.08)", // Luma gray-30
+      ring: "oklch(0.548 0.644 273.55)", // Luma blue-50
+      radius: "0.5rem",
+      "chart-1": "oklch(0.743 0.594 269.52)", // Luma blue-30
+      "chart-2": "oklch(0.721 0.336 120.42)", // Luma green-50
+      "chart-3": "oklch(0.499 0.476 273.48)", // Luma blue-60
+      "chart-4": "oklch(0.772 0.058 245.84)", // Luma gray-50
+      "chart-5": "oklch(0.597 0.197 0.71)", // Luma cranberry-50
+      sidebar: "oklch(1 0.102 240.86)", // Luma white
+      "sidebar-foreground": "oklch(0.195 0.002 255.85)", // Luma black
+      "sidebar-primary": "oklch(0.548 0.644 273.55)", // Luma blue-50
+      "sidebar-primary-foreground": "oklch(1 0.102 240.86)", // Luma white
+      "sidebar-accent": "oklch(0.979 0.104 242.96)", // Luma gray-10
+      "sidebar-accent-foreground": "oklch(0.255 0.003 253.59)", // Luma gray-100
+      "sidebar-border": "oklch(0.906 0.091 245.08)", // Luma gray-30
+      "sidebar-ring": "oklch(0.548 0.644 273.55)", // Luma blue-50
+    },
+    dark: {
+      background: "oklch(0.195 0.002 255.85)", // Luma black
+      foreground: "oklch(1 0.102 240.86)", // Luma white
+      card: "oklch(0.255 0.003 253.59)", // Luma gray-100
+      "card-foreground": "oklch(1 0.102 240.86)", // Luma white
+      popover: "oklch(0.328 0.006 251.54)", // Luma gray-90
+      "popover-foreground": "oklch(1 0.102 240.86)", // Luma white
+      primary: "oklch(0.743 0.594 269.52)", // Luma blue-30
+      "primary-foreground": "oklch(0.195 0.002 255.85)", // Luma black
+      secondary: "oklch(0.328 0.006 251.54)", // Luma gray-90
+      "secondary-foreground": "oklch(1 0.102 240.86)", // Luma white
+      muted: "oklch(0.328 0.006 251.54)", // Luma gray-90
+      "muted-foreground": "oklch(0.772 0.058 245.84)", // Luma gray-50
+      accent: "oklch(0.449 0.014 249.16)", // Luma gray-80
+      "accent-foreground": "oklch(1 0.102 240.86)", // Luma white
+      destructive: "oklch(0.597 0.197 0.71)", // Luma cranberry-50
+      "destructive-foreground": "oklch(1 0.102 240.86)", // Luma white
+      border: "oklch(0.449 0.014 249.16)", // Luma gray-80
+      input: "oklch(0.449 0.014 249.16)", // Luma gray-80
+      ring: "oklch(0.743 0.594 269.52)", // Luma blue-30
+      "chart-1": "oklch(0.743 0.594 269.52)", // Luma blue-30
+      "chart-2": "oklch(0.721 0.336 120.42)", // Luma green-50
+      "chart-3": "oklch(0.499 0.476 273.48)", // Luma blue-60
+      "chart-4": "oklch(0.772 0.058 245.84)", // Luma gray-50
+      "chart-5": "oklch(0.597 0.197 0.71)", // Luma cranberry-50
+      sidebar: "oklch(0.255 0.003 253.59)", // Luma gray-100
+      "sidebar-foreground": "oklch(1 0.102 240.86)", // Luma white
+      "sidebar-primary": "oklch(0.743 0.594 269.52)", // Luma blue-30
+      "sidebar-primary-foreground": "oklch(0.195 0.002 255.85)", // Luma black
+      "sidebar-accent": "oklch(0.328 0.006 251.54)", // Luma gray-90
+      "sidebar-accent-foreground": "oklch(1 0.102 240.86)", // Luma white
+      "sidebar-border": "oklch(0.449 0.014 249.16)", // Luma gray-80
+      "sidebar-ring": "oklch(0.743 0.594 269.52)", // Luma blue-30
     },
   },
 } as const
