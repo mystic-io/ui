@@ -1,0 +1,616 @@
+/* Custom Utility Classes for Luma Design System */
+
+@layer utilities {
+  /* Container Widths */
+  .max-w-custom {
+    max-width: var(--max-width);
+  }
+
+  .max-w-custom-wide {
+    max-width: var(--max-width-wide-page);
+  }
+
+  .max-w-custom-extra-wide {
+    max-width: var(--max-width-extra-wide-page);
+  }
+
+  /* Border Radius Utilities */
+  .rounded-custom-sm {
+    border-radius: var(--small-border-radius);
+  }
+
+  .rounded-custom {
+    border-radius: var(--border-radius);
+  }
+
+  .rounded-custom-card {
+    border-radius: var(--card-border-radius);
+  }
+
+  .rounded-custom-lg {
+    border-radius: var(--large-border-radius);
+  }
+
+  .rounded-custom-modal {
+    border-radius: var(--modal-border-radius);
+  }
+
+  /* Squircle Border Radius (with fallback) */
+  @supports (corner-shape: squircle) {
+    .rounded-squircle-sm {
+      corner-shape: squircle;
+      border-radius: var(--small-squircle-border-radius);
+    }
+
+    .rounded-squircle {
+      corner-shape: squircle;
+      border-radius: var(--squircle-border-radius);
+    }
+
+    .rounded-squircle-card {
+      corner-shape: squircle;
+      border-radius: var(--card-squircle-border-radius);
+    }
+
+    .rounded-squircle-modal {
+      corner-shape: squircle;
+      border-radius: var(--modal-squircle-border-radius);
+    }
+  }
+
+  /* Padding Utilities - Custom Card */
+  .p-card {
+    padding: var(--content-card-vertical-padding) var(--content-card-horizontal-padding);
+  }
+
+  .px-card {
+    padding-left: var(--content-card-horizontal-padding);
+    padding-right: var(--content-card-horizontal-padding);
+  }
+
+  .py-card {
+    padding-top: var(--content-card-vertical-padding);
+    padding-bottom: var(--content-card-vertical-padding);
+  }
+
+  /* Padding Utilities - Event Row */
+  .p-event-row {
+    padding: var(--event-row-padding);
+  }
+
+  /* Padding Utilities - List Row */
+  .p-list-row {
+    padding: var(--base-list-row-default-padding);
+  }
+
+  .px-list-row {
+    padding-left: var(--base-list-row-horizontal-padding);
+    padding-right: var(--base-list-row-horizontal-padding);
+  }
+
+  .py-list-row {
+    padding-top: var(--base-list-row-vertical-padding);
+    padding-bottom: var(--base-list-row-vertical-padding);
+  }
+
+  /* Modal Padding */
+  .p-modal {
+    padding: var(--modal-padding);
+  }
+
+  .px-modal {
+    padding-left: var(--modal-horizontal-padding);
+    padding-right: var(--modal-horizontal-padding);
+  }
+
+  .py-modal {
+    padding-top: var(--modal-vertical-padding);
+    padding-bottom: var(--modal-vertical-padding);
+  }
+
+  .p-modal-header {
+    padding: var(--modal-header-footer-padding);
+  }
+
+  /* Color Utilities - Brand */
+  .text-brand {
+    color: var(--brand-color);
+  }
+
+  .bg-brand {
+    background-color: var(--brand-bg-color);
+  }
+
+  .border-brand {
+    border-color: var(--brand-color);
+  }
+
+  .text-brand-on-bg {
+    color: var(--white);
+  }
+
+  /* Color Utilities - Success */
+  .text-success {
+    color: var(--success-color);
+  }
+
+  .bg-success {
+    background-color: var(--success-bg-color);
+  }
+
+  .border-success {
+    border-color: var(--success-color);
+  }
+
+  .bg-success-pale {
+    background-color: var(--success-pale-bg-color);
+  }
+
+  .bg-success-faint {
+    background-color: var(--success-faint-bg-color);
+  }
+
+  /* Color Utilities - Error */
+  .text-error {
+    color: var(--error-color);
+  }
+
+  .bg-error {
+    background-color: var(--error-bg-color);
+  }
+
+  .border-error {
+    border-color: var(--error-color);
+  }
+
+  .bg-error-pale {
+    background-color: var(--error-pale-bg-color);
+  }
+
+  .bg-error-faint {
+    background-color: var(--error-faint-bg-color);
+  }
+
+  /* Color Utilities - Warning */
+  .text-warning {
+    color: var(--warning-color);
+  }
+
+  .bg-warning {
+    background-color: var(--warning-bg-color);
+  }
+
+  .border-warning {
+    border-color: var(--warning-color);
+  }
+
+  .bg-warning-pale {
+    background-color: var(--warning-pale-bg-color);
+  }
+
+  .bg-warning-faint {
+    background-color: var(--warning-faint-bg-color);
+  }
+
+  /* Color Utilities - Semantic Text */
+  .text-primary-custom {
+    color: var(--primary-color);
+  }
+
+  .text-secondary-custom {
+    color: var(--secondary-color);
+  }
+
+  .text-tertiary-custom {
+    color: var(--tertiary-color);
+  }
+
+  .text-quaternary-custom {
+    color: var(--quaternary-color);
+  }
+
+  /* Color Utilities - Backgrounds */
+  .bg-primary-custom {
+    background-color: var(--primary-bg-color);
+  }
+
+  .bg-secondary-custom {
+    background-color: var(--secondary-bg-color);
+  }
+
+  .bg-tertiary-custom {
+    background-color: var(--tertiary-bg-color);
+  }
+
+  .bg-quaternary-custom {
+    background-color: var(--quaternary-bg-color);
+  }
+
+  .bg-elevated-primary {
+    background-color: var(--elevated-primary-bg-color);
+  }
+
+  .bg-elevated-secondary {
+    background-color: var(--elevated-secondary-bg-color);
+  }
+
+  .bg-elevated-tertiary {
+    background-color: var(--elevated-tertiary-bg-color);
+  }
+
+  .bg-modal {
+    background-color: var(--modal-bg-color);
+  }
+
+  .bg-page {
+    background-color: var(--page-bg-color);
+  }
+
+  .bg-card-custom {
+    background-color: var(--card-bg-color);
+  }
+
+  /* Color Utilities - Borders */
+  .border-primary-custom {
+    border-color: var(--primary-border-color);
+  }
+
+  .border-secondary-custom {
+    border-color: var(--secondary-border-color);
+  }
+
+  .border-active {
+    border-color: var(--active-border-color);
+  }
+
+  /* Color Utilities - Opacity Backgrounds */
+  .bg-opacity-custom-light {
+    background-color: var(--opacity-light);
+  }
+
+  .bg-opacity-custom-second-light {
+    background-color: var(--opacity-second-light);
+  }
+
+  /* Color Utilities - Hover */
+  .hover-bg-custom {
+    background-color: var(--hover-bg-color);
+  }
+
+  /* Color Utilities - Grayscale */
+  .bg-gray-10 {
+    background-color: var(--gray-10);
+  }
+
+  .bg-gray-20 {
+    background-color: var(--gray-20);
+  }
+
+  .bg-gray-30 {
+    background-color: var(--gray-30);
+  }
+
+  .bg-gray-40 {
+    background-color: var(--gray-40);
+  }
+
+  .bg-gray-50 {
+    background-color: var(--gray-50);
+  }
+
+  .bg-gray-60 {
+    background-color: var(--gray-60);
+  }
+
+  .bg-gray-70 {
+    background-color: var(--gray-70);
+  }
+
+  .bg-gray-80 {
+    background-color: var(--gray-80);
+  }
+
+  .bg-gray-90 {
+    background-color: var(--gray-90);
+  }
+
+  .bg-gray-100 {
+    background-color: var(--gray-100);
+  }
+
+  .text-gray-10 {
+    color: var(--gray-10);
+  }
+
+  .text-gray-20 {
+    color: var(--gray-20);
+  }
+
+  .text-gray-30 {
+    color: var(--gray-30);
+  }
+
+  .text-gray-40 {
+    color: var(--gray-40);
+  }
+
+  .text-gray-50 {
+    color: var(--gray-50);
+  }
+
+  .text-gray-60 {
+    color: var(--gray-60);
+  }
+
+  .text-gray-70 {
+    color: var(--gray-70);
+  }
+
+  .text-gray-80 {
+    color: var(--gray-80);
+  }
+
+  .text-gray-90 {
+    color: var(--gray-90);
+  }
+
+  .text-gray-100 {
+    color: var(--gray-100);
+  }
+
+  /* Shadow Utilities */
+  .shadow-custom-xs {
+    box-shadow: var(--shadow-xs);
+  }
+
+  .shadow-custom-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-custom {
+    box-shadow: var(--shadow);
+  }
+
+  .shadow-custom-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-custom-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .shadow-modal-custom {
+    box-shadow: var(--shadow-modal);
+  }
+
+  /* Backdrop Blur */
+  .backdrop-blur-custom {
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+  }
+
+  .backdrop-blur-custom-legibility {
+    backdrop-filter: var(--high-legibility-backdrop-blur);
+    -webkit-backdrop-filter: var(--high-legibility-backdrop-blur);
+  }
+
+  /* Typography Utilities */
+  .font-custom {
+    font-family: var(--font);
+  }
+
+  .font-mono-custom {
+    font-family: var(--mono-font);
+  }
+
+  .text-xxxl {
+    font-size: var(--font-size-xxxl);
+  }
+
+  .text-xxl {
+    font-size: var(--font-size-xxl);
+  }
+
+  .text-xl-custom {
+    font-size: var(--font-size-xl);
+  }
+
+  .text-lg-custom {
+    font-size: var(--font-size-lg);
+  }
+
+  .text-md-custom {
+    font-size: var(--font-size-md);
+  }
+
+  .text-sm-custom {
+    font-size: var(--font-size-sm);
+  }
+
+  .text-xs-custom {
+    font-size: var(--font-size-xs);
+  }
+
+  .text-xxs {
+    font-size: var(--font-size-xxs);
+  }
+
+  .text-xxxs {
+    font-size: var(--font-size-xxxs);
+  }
+
+  .font-light-custom {
+    font-weight: var(--font-weight-light);
+  }
+
+  .font-regular-custom {
+    font-weight: var(--font-weight-regular);
+  }
+
+  .font-medium-custom {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .font-bold-custom {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .line-height-default {
+    line-height: var(--default-line-height);
+  }
+
+  .line-height-reduced {
+    line-height: var(--reduced-line-height);
+  }
+
+  .line-height-title {
+    line-height: var(--title-line-height);
+  }
+
+  /* Transition Utilities */
+  .transition-custom {
+    transition: var(--transition);
+  }
+
+  .transition-fast {
+    transition: var(--fast-transition);
+  }
+
+  .transition-slow {
+    transition: var(--slow-transition);
+  }
+
+  .transition-bounce {
+    transition: var(--bounce-transition);
+  }
+
+  /* Z-Index Utilities */
+  .z-chat {
+    z-index: var(--chat-z-index);
+  }
+
+  .z-overlay-custom {
+    z-index: var(--overlay-z-index);
+  }
+
+  /* Input Size Utilities */
+  .input-height-custom {
+    height: var(--input-height);
+  }
+
+  .input-height-small {
+    height: var(--small-input-height);
+  }
+
+  .input-height-large {
+    height: var(--large-input-height);
+  }
+
+  /* Button Utilities */
+  .btn-custom {
+    padding: var(--input-padding);
+    font-size: var(--input-font-size);
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition);
+  }
+
+  .btn-small {
+    padding: var(--small-input-padding);
+    font-size: var(--small-input-font-size);
+  }
+
+  .btn-large {
+    padding: var(--large-input-padding);
+    font-size: var(--large-input-font-size);
+  }
+
+  .btn-icon-only {
+    padding: var(--button-icon-only-padding);
+  }
+
+  .btn-icon-only-compact {
+    padding: var(--button-icon-only-compact-padding);
+  }
+
+  /* Menu Utilities */
+  .menu-bg {
+    background-color: var(--menu-bg-color);
+  }
+
+  .menu-border {
+    border-color: var(--menu-border-color);
+  }
+
+  .menu-item-hover {
+    background-color: var(--menu-item-hover-bg-color);
+  }
+
+  /* Gradient Utilities */
+  .bg-gradient-default {
+    background: var(--default-gradient);
+  }
+
+  .bg-gradient-divider {
+    background: var(--gradient-divider);
+  }
+
+  /* Divider Utilities */
+  .divider-color {
+    border-color: var(--divider-color);
+  }
+
+  /* Overlay Utilities */
+  .overlay-color {
+    background-color: var(--overlay-color);
+  }
+
+  /* Disabled State */
+  .disabled-bg {
+    background-color: var(--disabled-bg-color);
+  }
+
+  /* Pill Utilities */
+  .pill-tiny {
+    padding: var(--tiny-pill-padding);
+    font-size: var(--tiny-pill-font-size);
+    gap: var(--tiny-pill-element-gap);
+  }
+
+  .pill-small {
+    padding: var(--small-pill-padding);
+    font-size: var(--small-pill-font-size);
+    gap: var(--small-pill-element-gap);
+  }
+
+  .pill-medium {
+    padding: var(--medium-pill-padding);
+    font-size: var(--medium-pill-font-size);
+    gap: var(--medium-pill-element-gap);
+  }
+
+  /* Toggle Utilities */
+  .toggle-width {
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+  }
+
+  .toggle-small-width {
+    width: var(--small-toggle-width);
+    height: var(--small-toggle-height);
+  }
+
+  .toggle-large-width {
+    width: var(--large-toggle-width);
+    height: var(--large-toggle-height);
+  }
+}
+
+/* Responsive Utilities */
+@layer utilities {
+  @media (max-width: 450px) {
+    .p-list-row-responsive {
+      padding: var(--base-list-row-vertical-padding) var(--base-list-row-horizontal-padding);
+    }
+  }
+}

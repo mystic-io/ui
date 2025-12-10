@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 @import "./themes.css";
+@import "./custom-theme.css";
+@import "./custom-utilities.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -10,12 +12,20 @@
 @theme inline {
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font);
+  --font-mono: var(--mono-font);
+
+  /* Custom Border Radius from Design System */
+  --radius-xs: var(--small-border-radius);
+  --radius-sm: var(--border-radius);
+  --radius-md: var(--card-border-radius);
+  --radius-lg: var(--large-border-radius);
+  --radius-xl: calc(var(--large-border-radius) + 0.25rem);
+
+  /* Custom Spacing */
+  --spacing-horizontal: var(--horizontal-padding);
+
+  /* Color Mappings to Custom Theme */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -55,91 +65,121 @@
   --color-code-number: var(--code-number);
   --color-selection: var(--selection);
   --color-selection-foreground: var(--selection-foreground);
+
+  /* Custom Design System Colors */
+  --color-brand: var(--brand-color);
+  --color-brand-foreground: var(--white);
+  --color-success: var(--success-color);
+  --color-success-foreground: var(--white);
+  --color-warning: var(--warning-color);
+  --color-warning-foreground: var(--white);
+  --color-error: var(--error-color);
+  --color-error-foreground: var(--white);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  --surface: oklch(0.98 0 0);
-  --surface-foreground: var(--foreground);
+  /* Base radius - using custom design system value */
+  --radius: var(--border-radius);
+
+  /* Light theme colors mapped to custom design system */
+  --background: var(--primary-bg-color);
+  --foreground: var(--primary-color);
+  --card: var(--card-bg-color);
+  --card-foreground: var(--primary-color);
+  --popover: var(--modal-bg-color);
+  --popover-foreground: var(--primary-color);
+  --primary: var(--black);
+  --primary-foreground: var(--white);
+  --secondary: var(--secondary-bg-color);
+  --secondary-foreground: var(--primary-color);
+  --muted: var(--tertiary-bg-color);
+  --muted-foreground: var(--secondary-color);
+  --accent: var(--brand-color);
+  --accent-foreground: var(--white);
+  --destructive: var(--error-color);
+  --border: var(--primary-border-color);
+  --input: var(--input-border-color);
+  --ring: var(--primary-color);
+
+  /* Chart colors - using blue scale from custom theme */
+  --chart-1: var(--blue-30);
+  --chart-2: var(--blue-40);
+  --chart-3: var(--blue-50);
+  --chart-4: var(--blue-60);
+  --chart-5: var(--blue-70);
+
+  /* Sidebar colors */
+  --sidebar: var(--elevated-primary-bg-color);
+  --sidebar-foreground: var(--primary-color);
+  --sidebar-primary: var(--black);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--secondary-bg-color);
+  --sidebar-accent-foreground: var(--primary-color);
+  --sidebar-border: var(--primary-border-color);
+  --sidebar-ring: var(--primary-color);
+
+  /* Surface and code */
+  --surface: var(--elevated-primary-bg-color);
+  --surface-foreground: var(--primary-color);
   --code: var(--surface);
   --code-foreground: var(--surface-foreground);
-  --code-highlight: oklch(0.96 0 0);
-  --code-number: oklch(0.56 0 0);
-  --selection: oklch(0.145 0 0);
-  --selection-foreground: oklch(1 0 0);
+  --code-highlight: var(--secondary-bg-color);
+  --code-number: var(--secondary-color);
+
+  /* Selection */
+  --selection: var(--primary-color);
+  --selection-foreground: var(--white);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.269 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.439 0 0);
-  --surface: oklch(0.2 0 0);
-  --surface-foreground: oklch(0.708 0 0);
+  /* Dark theme colors mapped to custom design system */
+  --background: var(--primary-bg-color);
+  --foreground: var(--primary-color);
+  --card: var(--elevated-primary-bg-color);
+  --card-foreground: var(--primary-color);
+  --popover: var(--modal-bg-color);
+  --popover-foreground: var(--primary-color);
+  --primary: var(--white);
+  --primary-foreground: var(--black);
+  --secondary: var(--secondary-bg-color);
+  --secondary-foreground: var(--primary-color);
+  --muted: var(--tertiary-bg-color);
+  --muted-foreground: var(--secondary-color);
+  --accent: var(--brand-color);
+  --accent-foreground: var(--white);
+  --destructive: var(--error-color);
+  --border: var(--primary-border-color);
+  --input: var(--input-border-color);
+  --ring: var(--primary-color);
+
+  /* Chart colors - using blue scale from custom theme */
+  --chart-1: var(--blue-30);
+  --chart-2: var(--blue-40);
+  --chart-3: var(--blue-50);
+  --chart-4: var(--blue-60);
+  --chart-5: var(--blue-70);
+
+  /* Sidebar colors */
+  --sidebar: var(--elevated-primary-bg-color);
+  --sidebar-foreground: var(--primary-color);
+  --sidebar-primary: var(--brand-color);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--secondary-bg-color);
+  --sidebar-accent-foreground: var(--primary-color);
+  --sidebar-border: var(--primary-border-color);
+  --sidebar-ring: var(--primary-color);
+
+  /* Surface and code */
+  --surface: var(--elevated-secondary-bg-color);
+  --surface-foreground: var(--primary-color);
   --code: var(--surface);
   --code-foreground: var(--surface-foreground);
-  --code-highlight: oklch(0.27 0 0);
-  --code-number: oklch(0.72 0 0);
-  --selection: oklch(0.922 0 0);
-  --selection-foreground: oklch(0.205 0 0);
+  --code-highlight: var(--tertiary-bg-color);
+  --code-number: var(--secondary-color);
+
+  /* Selection */
+  --selection: var(--white);
+  --selection-foreground: var(--black);
 }
 
 @layer base {
